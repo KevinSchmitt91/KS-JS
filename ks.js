@@ -68,8 +68,8 @@ function isScrolledIntoView(elem) {
 
 /* 
 	Funktion zum abfragen ob der oberste Punkt eines
-	Elementes, den obersten Punkt des Bildschirmrands
-	erreicht hat
+	Elementes, größer als der obersten Punkt des Bildschirmrands
+	ist
 */
 function isOnTopOfView(elem) {
     var $window = $(window),
@@ -82,7 +82,7 @@ function isOnTopOfView(elem) {
        
         
         
-    return docViewTop === elemTop;
+    return docViewTop > elemTop;
 }
 
 /* 
