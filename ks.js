@@ -76,12 +76,6 @@ function isOnTopOfView(elem) {
         docViewTop = $window.scrollTop(),
         elemTop = $(elem).offset().top;
         
-       
-        console.log(docViewTop);
-        console.log(elemTop);
-       
-        
-        
     return docViewTop > elemTop;
 }
 
@@ -94,12 +88,6 @@ function isOverTopOfView(elem) {
     var $window = $(window),
         docViewTop = $window.scrollTop(),
         elemTop = $(elem).offset().top;
-        
-       
-        console.log(docViewTop);
-        console.log(elemTop);
-       
-        
         
     return docViewTop < elemTop;
 }
@@ -117,6 +105,9 @@ $(window).scroll(function() {
 	
 	if(isOverTopOfView('.welcome')) {
 		$('.navbar-inverse').css('background', 'rgba(245,245,220,0.7)');
+		$(".navbar-inverse").hover(function() {
+		  $(this).css('background', 'rgba(245,245,220,1)');
+		});
 	}
 })
 
@@ -146,6 +137,22 @@ $(window).scroll(function() {
 $(window).scroll(function() {
 
     $('.picture-animate').each(function() {
+        if (isScrolledIntoView(this)) {
+            $(this).addClass('onview').delay(800);
+        }
+    });
+    
+
+});
+
+/* 
+	Funktion für das einblenden der Buttons
+	im Zusammenspiel mit der CSS Klasse
+	onview -> .btn-animate.onview
+*/
+$(window).scroll(function() {
+
+    $('.btn-animate').each(function() {
         if (isScrolledIntoView(this)) {
             $(this).addClass('onview').delay(800);
         }
