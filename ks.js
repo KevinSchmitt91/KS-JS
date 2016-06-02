@@ -171,9 +171,11 @@ function sticky_relocate() {
     var div_top = $('#navbar-anchor').offset().top;
     if (window_top > div_top) {
         $('.navbar').addClass('navbar-fixed-top');
+        $('.navbar-brand').fadeTo("slow",1);
         $('#navbar-anchor').height($('.navbar').outerHeight());
     } else {
         $('.navbar').removeClass('navbar-fixed-top');
+        $('.navbar-brand').fadeTo("slow",0);
         $('#navbar-anchor').height(0);
     }
 }
